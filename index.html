@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>United Banjara Grand Christmas 2025 🎄</title>
+<style>
+  /* ============ THEME ============ */
+  :root{
+    --bg-1:#070b14;
+    --bg-2:#0d1324;
+    --glass:rgba(17,24,39,.55);
+    --border:rgba(255,255,255,.08);
+    --text:#e6e9ef;
+    --muted:#9aa3b2;
+    --accent:#7c3aed;
+    --accent-2:#22c55e;
+    --accent-3:#3b82f6;
+    --error:#ef4444;
+    --ring: 0 0 0 .2rem rgba(124,58,237,.35);
+    --radius:18px;
+    --shadow-lg:0 20px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    color:var(--text);
+    background:
+      radial-gradient(1200px 700px at 10% -10%, #101831 0%, transparent 60%),
+      radial-gradient(900px 600px at 110% 10%, #0a1228 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
+    overflow-x:hidden;
+  }
+
+  .container{max-width:720px;margin:clamp(16px,5vh,56px) auto;padding:0 18px}
+
+  /* Background sparkles */
+  .sparkles{
+    position:fixed; inset:0; pointer-events:none; z-index:-3;
+    background:
+      radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,.25) 50%, transparent 52%) repeat,
+      radial-gradient(2px 2px at 70% 30%, rgba(255,255,255,.25) 50%, transparent 52%) repeat,
+      radial-gradient(2px 2px at 30% 80%, rgba(255,255,255,.2) 50%, transparent 52%) repeat;
+    background-size:180px 220px, 220px 260px, 200px 200px;
+    animation: twinkle 6s linear infinite;
+    opacity:.6;
+  }
+  @keyframes twinkle{0%{filter:brightness(1)}50%{filter:brightness(1.4)}100%{filter:brightness(1)}}
+
+  /* Cards */
+  .card{
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    backdrop-filter:saturate(120%) blur(10px);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-lg);
+    padding:28px;
+  }
+
+  h1{margin:0 0 10px;font-size:clamp(2rem,4vw,2.8rem)}
+  h2{margin:0 0 6px;font-size:clamp(1.4rem,3vw,1.8rem)}
+  .lead{color:#d1d6df;margin:6px 0 16px;text-align:center}
+
+  .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:12px}
+  .btn{
+    appearance:none;border:1px solid rgba(255,255,255,.12);
+    padding:14px 22px;border-radius:14px;cursor:pointer;font-weight:700;
+    color:#fff;background:
+      radial-gradient(120% 180% at 50% 0%, rgba(255,255,255,.15), transparent 60%),
+      linear-gradient(90deg, var(--accent) 0%, #5b21b6 50%, var(--accent) 100%);
+    background-size:200% 100%;
+    transition:transform .06s ease, filter .2s ease, background-position .6s ease;
+    box-shadow:0 8px 30px rgba(124,58,237,.35);
+  }
+  .btn:hover{filter:brightness(1.08); background-position:100% 0}
+  .btn:active{transform:translateY(1px)}
+  .btn-secondary{
+    background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+    color:var(--text); box-shadow:none;
+  }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 12px; border-radius:999px; border:1px solid var(--border);
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    color:#dfe6f2; font-weight:600; letter-spacing:.2px;
+  }
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 10px var(--accent-2)}
+
+  .view{display:none;animation:.28s ease fadein}
+  .view.active{display:block}
+  @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* Single-column form */
+  .grid{display:grid;gap:14px}
+  .grid-2{grid-template-columns:1fr !important;}
+
+  label{display:block;margin:0 0 6px;font-weight:700}
+  .field{position:relative}
+  .input{
+    width:100%;padding:14px;border-radius:12px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(8,14,28,.7);
+    color:var(--text);
+    outline:none;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .input:focus{border-color:#9d7dff;box-shadow:var(--ring)}
+  .input::placeholder{color:#6f7a8b}
+  .error{display:block;color:#ef4444;font-size:.85rem;min-height:1.1em;margin-top:6px}
+  .hint{display:block;color:#9aa3b2;font-size:.85rem;margin-top:6px}
+
+  .attendees-wrap{margin-top:10px}
+  .attendee{border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border-radius:14px;padding:12px}
+  .attendee h3{margin:0 0 8px;font-size:1rem;color:#e2e8f0}
+
+  .steps{display:flex;gap:8px;margin-bottom:14px}
+  .step{flex:1;height:6px;border-radius:999px;background:rgba(255,255,255,.12)}
+  .step.fill{background:linear-gradient(90deg,var(--accent),var(--accent-3))}
+
+  .line{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);margin:12px 0}
+
+  /* Thank You centered */
+  #view-thanks{
+    position:fixed;
+    left:50%;top:50%;
+    transform:translate(-50%,-50%);
+    width:min(700px,90%);
+    text-align:center;
+    background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-lg);
+    padding:40px 28px;
+    z-index:2;
+  }
+  #view-thanks .actions{justify-content:center}
+
+  /* Layers: festive behind cards, confetti behind everything */
+  #festive{position:fixed; inset:0; pointer-events:none; z-index:-2}
+  #confetti{position:fixed;inset:0;pointer-events:none;z-index:-4}
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .view{animation:none}
+    .btn{transition:none}
+    .sparkles{animation:none}
+  }
+</style>
+</head>
+<body>
+<canvas id="festive"></canvas>
+<canvas id="confetti"></canvas>
+<div class="sparkles"></div>
+
+<main class="container">
+
+  <!-- ========== WELCOME ========== -->
+  <section id="view-welcome" class="view card active" aria-labelledby="welcomeTitle">
+    <div class="pill" style="margin-bottom:12px"><span class="dot"></span> Telangana United Banjara Welfare Association</div>
+    <h1 id="welcomeTitle" style="text-align:center">United Banjara Grand Christmas 2025 🎄</h1>
+    <p class="lead">Join us for a day of joy, carols, community, and celebration.</p>
+    <div class="line"></div>
+    <div class="actions">
+      <button id="btnStart" class="btn">Register Now</button>
+      <button id="btnInfo" class="btn btn-secondary" title="Event Info">Event Info</button>
+    </div>
+  </section>
+
+  <!-- ========== FORM ========== -->
+  <section id="view-form" class="view card" aria-labelledby="formTitle">
+    <div class="steps" aria-hidden="true">
+      <div class="step fill"></div><div class="step fill"></div><div class="step"></div>
+    </div>
+    <h2 id="formTitle" style="text-align:center">Event Registration</h2>
+    <p class="lead">Please fill in your details below.</p>
+
+    <form id="registrationForm" novalidate>
+      <div class="grid grid-2">
+        <div class="field">
+          <label for="fullName">Full Name<span>*</span></label>
+          <input class="input" id="fullName" name="fullName" type="text" placeholder=" " required minlength="2" />
+          <small class="error" id="fullNameError"></small>
+        </div>
+        <div class="field">
+          <label for="church">Church<span>*</span></label>
+          <input class="input" id="church" name="church" type="text" placeholder=" " required />
+          <small class="error" id="churchError"></small>
+        </div>
+        <div class="field">
+          <label for="age">Age (optional)</label>
+          <input class="input" id="age" name="age" type="number" min="1" max="120" placeholder=" " />
+        </div>
+        <div class="field">
+          <label for="city">City<span>*</span></label>
+          <input class="input" id="city" name="city" type="text" placeholder="e.g., Hyderabad" required />
+          <small class="error" id="cityError"></small>
+        </div>
+        <div class="field">
+          <label for="state">State<span>*</span></label>
+          <input class="input" id="state" name="state" type="text" placeholder="e.g., Telangana" required />
+          <small class="error" id="stateError"></small>
+        </div>
+        <div class="field">
+          <label for="phone">Phone<span>*</span></label>
+          <input class="input" id="phone" name="phone" type="tel" placeholder="e.g., 9876543210" pattern="^[0-9]{10}$" required />
+          <small class="hint">10 digits, numbers only</small>
+          <small class="error" id="phoneError"></small>
+        </div>
+        <div class="field">
+          <label for="email">Email (optional)</label>
+          <input class="input" id="email" name="email" type="email" placeholder="you@example.com" />
+          <small class="error" id="emailError"></small>
+        </div>
+        <div class="field">
+          <label for="attendees">No. of Attendees (optional)</label>
+          <select class="input" id="attendees" name="attendees">
+            <option value="" disabled selected>-- Select number of attendees --</option>
+          </select>
+          <small class="hint">Select if more than one person is attending.</small>
+        </div>
+      </div>
+
+      <div id="attendeesWrap" class="attendees-wrap" hidden>
+        <div id="attendeeList" class="grid"></div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn">Submit Registration</button>
+        <button type="button" id="btnBackHome" class="btn btn-secondary">Back</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ========== THANK YOU ========== -->
+  <section id="view-thanks" class="view" aria-labelledby="thanksTitle">
+    <h2 id="thanksTitle">🎉 Thank You!</h2>
+    <p class="lead">Your registration has been received successfully.<br/>Please collect your coupon.</p>
+    <div class="actions">
+      <button id="btnHome" class="btn">Back to Home</button>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const MAX_ATTENDEES = 50;
+  const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbxknOLt_K0fyhgrgqBhMF-z0kABsQTc6wwaaDgR8z48pMuhmgP78queUoYhylWxwLzMPQ/exec";
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const showView = (id) => {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if(id === 'view-welcome'){ startFestive(); } else { stopFestive(); }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+
+
+  /* =======================
+     FESTIVE (WELCOME): faster bells/snow/toys
+  ======================== */
+  const festive = document.getElementById('festive');
+  const fctx = festive.getContext('2d');
+  let festRAF = null;
+  let flakes = [];
+  let emojis = [];
+  const emojiList = ['🔔','🎁','🎄','⭐','❄️'];
+
+  function resizeFestive(){ festive.width = innerWidth; festive.height = innerHeight; }
+  addEventListener('resize', resizeFestive); resizeFestive();
+
+  function seedFestive(){
+    flakes = []; emojis = [];
+    // Slightly faster snow
+    const snowCount = 140;
+    for(let i=0;i<snowCount;i++){
+      flakes.push({
+        x: Math.random()*festive.width,
+        y: Math.random()*festive.height,
+        r: 1 + Math.random()*2.2,
+        vy: 0.8 + Math.random()*1.6,     // was 0.5–1.2 → faster
+        vx: (Math.random()-0.5)*0.6,     // a bit more sway
+        alpha: 0.5 + Math.random()*0.5
+      });
+    }
+    // Faster emoji fall
+    const emojiCount = 70;
+    for(let i=0;i<emojiCount;i++){
+      emojis.push({
+        x: Math.random()*festive.width,
+        y: -Math.random()*festive.height,
+        vy: 2.0 + Math.random()*1.8,     // was 1–2.2 → faster
+        vx: (Math.random()-.5)*1.0,      // slightly more drift
+        rot: Math.random()*Math.PI,
+        vr: (Math.random()-.5)*0.03,
+        size: 18 + Math.random()*18,
+        char: emojiList[Math.floor(Math.random()*emojiList.length)]
+      });
+    }
+  }
+
+  function drawFestive(){
+    fctx.clearRect(0,0,festive.width,festive.height);
+
+    // snow circles
+    fctx.save();
+    flakes.forEach(f=>{
+      f.y += f.vy; f.x += f.vx;
+      if(f.y > festive.height+5){ f.y = -5; f.x = Math.random()*festive.width; }
+      if(f.x < -10) f.x = festive.width+10;
+      if(f.x > festive.width+10) f.x = -10;
+      fctx.globalAlpha = f.alpha;
+      fctx.beginPath();
+      fctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
+      fctx.fillStyle = '#ffffff';
+      fctx.fill();
+    });
+    fctx.restore();
+
+    // emojis
+    emojis.forEach(e=>{
+      e.y += e.vy; e.x += e.vx; e.rot += e.vr;
+      if(e.y > festive.height+30){ e.y = -30; e.x = Math.random()*festive.width; }
+      if(e.x < -30) e.x = festive.width+30;
+      if(e.x > festive.width+30) e.x = -30;
+
+      fctx.save();
+      fctx.translate(e.x, e.y);
+      fctx.rotate(e.rot);
+      fctx.font = `${e.size}px system-ui, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji`;
+      fctx.textAlign = 'center';
+      fctx.textBaseline = 'middle';
+      fctx.fillText(e.char, 0, 0);
+      fctx.restore();
+    });
+
+    festRAF = requestAnimationFrame(drawFestive);
+  }
+
+  function startFestive(){
+    if(prefersReducedMotion) return;
+    resizeFestive();
+    seedFestive();
+    if(!festRAF) drawFestive();
+  }
+  function stopFestive(){
+    if(festRAF){ cancelAnimationFrame(festRAF); festRAF = null; }
+    fctx.clearRect(0,0,festive.width,festive.height);
+  }
+
+  // start on initial welcome
+  startFestive();
+
+  /* =======================
+     CONFETTI (THANK YOU)
+  ======================== */
+  const cf = document.getElementById('confetti');
+  const ctx = cf.getContext('2d');
+  let pieces = [];
+  function resizeConfetti(){ cf.width = innerWidth; cf.height = innerHeight; }
+  addEventListener('resize', resizeConfetti); resizeConfetti();
+
+  function makeConfetti(){
+    pieces = [];
+    const colors = ['#7c3aed','#22c55e','#3b82f6','#f59e0b','#ef4444'];
+    for(let i=0;i<150;i++){
+      pieces.push({
+        x: Math.random()*cf.width,
+        y: -Math.random()*cf.height,
+        w: 6+Math.random()*6,
+        h: 10+Math.random()*10,
+        rot: Math.random()*Math.PI,
+        vel: 2+Math.random()*4,
+        col: colors[Math.floor(Math.random()*colors.length)]
+      });
+    }
+  }
+  function drawConfetti(){
+    ctx.clearRect(0,0,cf.width,cf.height);
+    pieces.forEach(p=>{
+      p.y += p.vel;
+      p.rot += 0.05;
+      if(p.y > cf.height+20) p.y = -20;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.col;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    requestAnimationFrame(drawConfetti);
+  }
+  drawConfetti(); // idle loop (pieces empty until makeConfetti is called)
+
+  (function(){
+    const form = document.getElementById("registrationForm");
+    const attendeeList = document.getElementById("attendeeList");
+    const attendeeWrap = document.getElementById("attendeesWrap");
+    const byId = id => document.getElementById(id);
+    const setError = (id, msg = "") => { const el = byId(id); if(el) el.textContent = msg || ""; };
+
+    // Populate attendees dropdown
+    (function(){
+      const sel = byId("attendees");
+      for(let i=1;i<=MAX_ATTENDEES;i++){
+        const o = document.createElement("option");
+        o.value = o.textContent = i;
+        sel.appendChild(o);
+      }
+    })();
+
+    function renderAttendeeRows(n){
+      attendeeList.innerHTML = "";
+      if(!n || n < 1){ attendeeWrap.hidden = true; return; }
+      attendeeWrap.hidden = false;
+      for(let i=1;i<=n;i++){
+        const d = document.createElement("div");
+        d.className = "attendee";
+        d.innerHTML = `
+          <h3>Attendee ${i}</h3>
+          <div class="grid">
+            <div class="field"><label>Name</label><input class="input" name="attendeeName_${i}" placeholder="Full Name" required></div>
+            <div class="field"><label>Relation</label><input class="input" name="attendeeRelation_${i}" placeholder="Relation" required></div>
+          </div>`;
+        attendeeList.appendChild(d);
+      }
+    }
+    byId("attendees").addEventListener("change", e => renderAttendeeRows(Number(e.target.value)));
+
+    function validate(){
+      let ok = true;
+      const fullName = byId("fullName").value.trim();
+      const church = byId("church").value.trim();
+      const city = byId("city").value.trim();
+      const state = byId("state").value.trim();
+      const phone = byId("phone").value.trim();
+      const email = byId("email").value.trim();
+      const attendees = Number(byId("attendees").value || 0);
+
+      if(fullName.length < 2){ setError("fullNameError","Please enter your full name."); ok=false; } else setError("fullNameError");
+      if(church.length < 2){ setError("churchError","Please enter your church name."); ok=false; } else setError("churchError");
+      if(city.length < 2){ setError("cityError","Please enter your city."); ok=false; } else setError("cityError");
+      if(state.length < 2){ setError("stateError","Please enter your state."); ok=false; } else setError("stateError");
+      if(!/^\d{10}$/.test(phone)){ setError("phoneError","Phone must be exactly 10 digits."); ok=false; } else setError("phoneError");
+      if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setError("emailError","Please enter a valid email."); ok=false; } else setError("emailError");
+
+      if(attendees > 0){
+        for(let i=1;i<=attendees;i++){
+          const n = (form[`attendeeName_${i}`]?.value || "").trim();
+          const r = (form[`attendeeRelation_${i}`]?.value || "").trim();
+          if(!n || !r){ alert(`Please fill Name and Relation for Attendee ${i}.`); ok = false; break; }
+        }
+      }
+      return ok;
+    }
+
+    async function sendToSheet(data){
+      const res = await fetch(ENDPOINT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data)
+      });
+      const t = await res.text();
+      let j; try{ j = JSON.parse(t); } catch { throw new Error("Bad response from server"); }
+      if(!j.success) throw new Error(j.error || "Server returned an error");
+      return j;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if(!validate()) return;
+
+      // Build FormData and explicitly include dynamic attendee fields
+      const fd = new FormData(form);
+      const c = Number(fd.get('attendees') || 0);
+      for (let i = 1; i <= c; i++) {
+        const nameEl = form.querySelector(`[name="attendeeName_${i}"]`);
+        const relEl  = form.querySelector(`[name="attendeeRelation_${i}"]`);
+        const nameVal = nameEl ? (nameEl.value || "") : "";
+        const relVal  = relEl  ? (relEl.value  || "") : "";
+        if (fd.has(`attendeeName_${i}`)) fd.delete(`attendeeName_${i}`);
+        fd.append(`attendeeName_${i}`, nameVal);
+        if (fd.has(`attendeeRelation_${i}`)) fd.delete(`attendeeRelation_${i}`);
+        fd.append(`attendeeRelation_${i}`, relVal);
+      }
+      const data = Object.fromEntries(fd.entries());
+
+      // Correct IST timestamp (UTC +5:30)
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const istTime = new Date(utc + (5.5 * 60 * 60 * 1000)); // add 5h 30m
+      const pad = n => String(n).padStart(2, "0");
+      data.submittedAt = `${istTime.getFullYear()}-${pad(istTime.getMonth() + 1)}-${pad(istTime.getDate())} ${pad(istTime.getHours())}:${pad(istTime.getMinutes())}:${pad(istTime.getSeconds())}`;
+
+      try{
+        await sendToSheet(data);
+        makeConfetti();
+        showView('view-thanks');
+      }catch(err){
+        alert("Could not submit to server. Try again later. (" + (err.message||'') + ")");
+        console.error(err);
+      }finally{
+        form.reset();
+        attendeeList.innerHTML = "";
+        attendeeWrap.hidden = true;
+        document.getElementById("attendees").selectedIndex = 0;
+      }
+    });
+
+    // Navigation + Jingle
+    document.getElementById('btnStart').addEventListener('click', () => {
+      showView('view-form');
+    });
+    document.getElementById('btnBackHome').addEventListener('click', () => showView('view-welcome'));
+    document.getElementById('btnHome').addEventListener('click', () => showView('view-welcome'));
+    document.getElementById('btnInfo').addEventListener('click', () => alert("Baptist Church Hyderabad | 15-12-2025 9:30 AM | Lunch Follows"));
+  })();
+</script>
+</body>
+</html>
